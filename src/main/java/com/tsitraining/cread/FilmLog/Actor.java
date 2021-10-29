@@ -32,7 +32,7 @@ public class Actor
     {
         return dob;
     }
-    public void setDob(Date dob)
+    public void setDob(LocalDate dob)
     {
         this.dob = dob;
     }
