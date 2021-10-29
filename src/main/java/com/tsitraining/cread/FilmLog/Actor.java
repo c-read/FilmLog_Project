@@ -1,5 +1,6 @@
 package com.tsitraining.cread.FilmLog;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -7,14 +8,17 @@ import java.util.List;
 public class Actor
 {
     private String name;
-    private Date dob;
+    private LocalDate dob;
+    List<String> filmsIn = new ArrayList<String>();
 
 
-    public Actor(String name, Date dob)
+
+    public Actor(String name, LocalDate dob)
     {
         this.name = name;
         this.dob = dob;
     }
+
 
     public String getName()
     {
@@ -24,8 +28,7 @@ public class Actor
     {
         this.name = name;
     }
-
-    public Date getDob()
+    public LocalDate getDob()
     {
         return dob;
     }
@@ -34,9 +37,8 @@ public class Actor
         this.dob = dob;
     }
 
-    List<String> filmsIn = new ArrayList<String>();
 
-    public void addFilm(Actor actor)
+    public void addFilm(Film film)
     {
         /*some logic*/
     }
