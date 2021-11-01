@@ -3,22 +3,24 @@ package com.tsitraining.cread.FilmLog;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
+@Table(name="film")
 public class Film
 {
 
     @Id
-    @GeneratedValue(strategy=GenerationType.TABLE)
+ /*   @GeneratedValue(strategy=GenerationType.TABLE)*/
+    @Column(name="film_id")
     private int film_id;
 
+    @Column(name="title")
     private String title;
+
+    @Column(name="release_year")
     private int releaseYear;
-    List<String> actorsIn = new ArrayList<String>();
+    List<String> actorsInFilm = new ArrayList<String>();
 
     public Film(){}
 
@@ -31,17 +33,16 @@ public class Film
     {
         return title;
     }
-
     public void setTitle(String title)
     {
         this.title = title;
     }
+
     public int getReleaseYear()
     {
         return releaseYear;
     }
-
-    public void setDob(int releaseYear)
+    public void setReleaseYear(int releaseYear)
     {
         this.releaseYear = releaseYear;
     }
@@ -56,8 +57,8 @@ public class Film
         this.film_id = film_id;
     }
 
-    public void addActor(Actor actor)
+/*    public void addActor(Actor actor)
     {
-        /*some logic*/
-    }
+        some logic
+    }*/
 }

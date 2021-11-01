@@ -9,6 +9,7 @@ import java.time.LocalDate;
 
 @SpringBootApplication
 @RestController
+@RequestMapping("/films")
 public class FilmLogApplication
 {
 

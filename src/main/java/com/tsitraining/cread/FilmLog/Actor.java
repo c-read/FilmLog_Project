@@ -4,18 +4,18 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
+/*
 
 @Entity
+@Table(name="actor")
 public class Actor
 {
 
     @Id
     @GeneratedValue(strategy=GenerationType.TABLE)
+    @Column(name="actor_id");
     private int actor_id;
 
     private String name;
@@ -61,6 +61,7 @@ public class Actor
 
     public void addFilm(Film film)
     {
-        /*some logic*/
+
     }
 }
+*/
