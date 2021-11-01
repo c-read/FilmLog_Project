@@ -2,39 +2,58 @@ package com.tsitraining.cread.FilmLog;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
+@Entity
 public class Film
 {
-    private String name;
-    private LocalDate releaseDate;
+
+    @Id
+    @GeneratedValue(strategy=GenerationType.TABLE)
+    private int film_id;
+
+    private String title;
+    private int releaseYear;
     List<String> actorsIn = new ArrayList<String>();
 
+    public Film(){}
 
-
-    public Film(String name, LocalDate releaseDate)
+    public Film(String title, int releaseYear)
     {
-        this.name = name;
-        this.releaseDate = releaseDate;
+        this.title = title;
+        this.releaseYear = releaseYear;
     }
-    public String getName()
+    public String getTitle()
     {
-        return name;
-    }
-
-    public void setName(String name)
-    {
-        this.name = name;
-    }
-    public LocalDate getReleaseDate()
-    {
-        return releaseDate;
+        return title;
     }
 
-    public void setDob(LocalDate releaseDate)
+    public void setTitle(String title)
     {
-        this.releaseDate = releaseDate;
+        this.title = title;
+    }
+    public int getReleaseYear()
+    {
+        return releaseYear;
+    }
+
+    public void setDob(int releaseYear)
+    {
+        this.releaseYear = releaseYear;
+    }
+
+
+    public int getFilm_id()
+    {
+        return film_id;
+    }
+    public void setFilm_id(int film_id)
+    {
+        this.film_id = film_id;
     }
 
     public void addActor(Actor actor)
