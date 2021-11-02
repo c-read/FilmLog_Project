@@ -4,7 +4,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.web.bind.annotation.*;
-import java.time.LocalDate;
 
 
 @SpringBootApplication
@@ -39,14 +38,14 @@ public class FilmLogApplication
 	}
 
 	@PostMapping("/addFilm")
-		public @ResponseBody String addAFilm (@RequestParam String title
-	          , @RequestParam int releaseYear)
-		{
-			Film savedFilm = new Film(title, releaseYear);
+	public @ResponseBody String addAFilm (@RequestParam String title
+		  , @RequestParam int releaseYear)
+	{
+		Film savedFilm = new Film(title, releaseYear);
 
-			filmRepository.save(savedFilm);
-			return "saved";
+		filmRepository.save(savedFilm);
+		return "saved";
 
-		}
+	}
 
 }

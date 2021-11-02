@@ -11,23 +11,23 @@ public class Film
 
     @Id
     @GeneratedValue(strategy=GenerationType.TABLE)
-    @Column(name="film_id")
     private int film_id;
 
-    @Column(name="title")
     private String title;
-
-    @Column(name="release_year")
     private int releaseYear;
-    List<String> actorsInFilm = new ArrayList<String>();
 
-    public Film(){}
+    /*List<String> actorsInFilm = new ArrayList<String>();*/
 
     public Film(String title, int releaseYear)
     {
         this.title = title;
         this.releaseYear = releaseYear;
     }
+
+    public Film(){}
+
+
+
     public String getTitle()
     {
         return title;
@@ -45,7 +45,6 @@ public class Film
     {
         this.releaseYear = releaseYear;
     }
-
 
     public int getFilm_id()
     {
