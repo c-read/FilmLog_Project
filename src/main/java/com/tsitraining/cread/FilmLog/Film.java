@@ -1,6 +1,5 @@
 package com.tsitraining.cread.FilmLog;
 
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.*;
@@ -11,7 +10,7 @@ public class Film
 {
 
     @Id
- /*   @GeneratedValue(strategy=GenerationType.TABLE)*/
+    @GeneratedValue(strategy=GenerationType.TABLE)
     @Column(name="film_id")
     private int film_id;
 
