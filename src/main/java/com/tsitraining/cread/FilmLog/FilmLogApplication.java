@@ -37,6 +37,13 @@ public class FilmLogApplication
 		return filmRepository.findAll();
 	}
 
+	@GetMapping("/id/{film_id}")
+	public @ResponseBody Film findById(@PathVariable("film_id") int film_id)
+	{
+		Film film = filmRepository.findById(film_id).orElse(null);
+		return film;
+	}
+
 	@PostMapping("/addFilm")
 	public @ResponseBody String addAFilm (@RequestParam String title
 		  , @RequestParam int releaseYear)
