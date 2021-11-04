@@ -1,7 +1,5 @@
 package com.tsitraining.cread.FilmLog;
 
-import java.util.ArrayList;
-import java.util.List;
 import javax.persistence.*;
 
 @Entity
@@ -10,23 +8,37 @@ public class Film
 {
 
     @Id
-    @GeneratedValue(strategy=GenerationType.TABLE)
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
+/*    @Column(name = "film_id", unique = true, nullable = false)*/
     private int film_id;
 
     private String title;
-    private int releaseYear;
+    private int language_id;
+    private int length;
+
 
     /*List<String> actorsInFilm = new ArrayList<String>();*/
 
-    public Film(String title, int releaseYear)
+    public Film(String title,
+                int language_id, int length)
     {
         this.title = title;
-        this.releaseYear = releaseYear;
+        this.language_id = language_id;
+        this.length = length;
     }
 
     public Film(){}
 
 
+
+    public int getFilm_id()
+    {
+        return film_id;
+    }
+    public void setFilm_id(int film_id)
+    {
+        this.film_id = film_id;
+    }
 
     public String getTitle()
     {
@@ -37,23 +49,11 @@ public class Film
         this.title = title;
     }
 
-    public int getReleaseYear()
-    {
-        return releaseYear;
-    }
-    public void setReleaseYear(int releaseYear)
-    {
-        this.releaseYear = releaseYear;
-    }
+    public int getLanguage_id() { return language_id; }
+    public void setLanguage_id(int language_id) {this.language_id = language_id; }
 
-    public int getFilm_id()
-    {
-        return film_id;
-    }
-    public void setFilm_id(int film_id)
-    {
-        this.film_id = film_id;
-    }
+    public int getLength() {return length; }
+    public void setLength() {this.length = length; }
 
 /*    public void addActor(Actor actor)
     {

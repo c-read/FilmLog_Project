@@ -45,10 +45,10 @@ public class FilmLogApplication
 	}
 
 	@PostMapping("/addFilm")
-	public @ResponseBody String addAFilm (@RequestParam String title
-		  , @RequestParam int releaseYear)
+	public @ResponseBody String addAFilm (@RequestParam String title, @RequestParam int language_id,
+										  @RequestParam int length)
 	{
-		Film savedFilm = new Film(title, releaseYear);
+		Film savedFilm = new Film(title, language_id, length);
 
 		filmRepository.save(savedFilm);
 		return "saved";

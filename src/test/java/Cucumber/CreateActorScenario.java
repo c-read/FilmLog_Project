@@ -9,7 +9,7 @@ public class CreateActorScenario
 {
     private String thisFilmName;
     private String actualAnswer;
-    Film film = new Film("harry potter",2009);
+    Film film = new Film("harry potter",1,120);
 
 
     @Given("no current film entry")
