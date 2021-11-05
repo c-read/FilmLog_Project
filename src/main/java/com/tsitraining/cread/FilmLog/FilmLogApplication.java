@@ -5,6 +5,8 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
+import java.util.List;
 
 
 @SpringBootApplication
@@ -46,14 +48,22 @@ public class FilmLogApplication
 	}
 
 	@PostMapping("/addFilm")
-	public @ResponseBody String addAFilm (@RequestParam String title, @RequestParam int language_id,
-										  @RequestParam int length)
+	public @ResponseBody String addAFilm (@RequestParam int film_id, @RequestParam String title,
+										  @RequestParam int language_id, @RequestParam int length)
 	{
-		Film savedFilm = new Film(title, language_id, length);
+		Film savedFilm = new Film(film_id, title, language_id, length);
 
 		filmRepository.save(savedFilm);
 		return "saved";
 
+	}
+
+	@DeleteMapping("/deleteFilmById/{film_id}")
+	public @ResponseBody String deleteFilmById(@PathVariable("film_id") int film_id)
+	{
+		Film film = filmRepository.findById(film_id).orElse(null);
+		filmRepository.delete(film);
+		return "deleted";
 	}
 
 /*	@PostMapping("/addFilm")

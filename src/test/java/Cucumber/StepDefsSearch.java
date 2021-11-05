@@ -1,4 +1,5 @@
 package Cucumber;
+
 import com.tsitraining.cread.FilmLog.Film;
 import com.tsitraining.cread.FilmLog.FilmRepository;
 import io.cucumber.java.en.Given;
@@ -8,39 +9,41 @@ import io.cucumber.spring.CucumberContextConfiguration;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import java.util.Optional;
-
 import static org.junit.Assert.assertEquals;
 
 
 @CucumberContextConfiguration
 @SpringBootTest
-public class StepDefsAdd
+public class StepDefsSearch
 {
     @Autowired
 
     private FilmRepository filmRepository;
-    Film film = new Film(1, "LOTR", 1, 180);
+    Film film;
     String title;
 
-    @Given("string title provided")
-    public void string_title_provided()
+    @Given("film in database")
+    public void film_in_database()
     {
-        title = film.getTitle();
-    }
-
-    @When("i add a film")
-    public void i_add_a_film()
-    {
+        film = new Film(1, "LOTR",1,180);
         filmRepository.save(film);
     }
 
-    @Then("i should be told film added")
-    public void i_should_be_told ()
+    @When("i search for film")
+    public void i_search_for_film()
     {
-        Optional<Film> newFilmOptional = filmRepository.findById(1);
-        Film newFilmActual = newFilmOptional.get();
-        assertEquals(newFilmActual.getTitle(),film.getTitle());
+
+        var allFilms = filmRepository.findAll();
+        for (Film item : allFilms)
+        {
+            Film newFilm = item;
+        }
+
     }
 
+    @Then("i should be told {string} in database")
+    public void i_should_be_told (String expectedAnswer)
+    {
+        assertEquals(expectedAnswer, film.getTitle());
+    }
 }
