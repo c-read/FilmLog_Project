@@ -5,26 +5,25 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import static org.junit.Assert.assertEquals;
 
-public class CreateActorScenario
+public class StepDefsAdd
 {
-    private String thisFilmName;
+    private String thisFilmTitle;
     private String actualAnswer;
-    Film film = new Film("harry potter",1,120);
+    Film film = new Film("LOTR",1,120);
 
-
-    @Given("no current film entry")
+    @Given("all inputs are provided")
     public void no_current_film_entry ()
     {
-        thisFilmName = "harry potter";
+        thisFilmTitle = "LOTR";
     }
 
-    @When("create new film method")
+    @When("i try to add a film")
     public void create_new_film_method ()
     {
-        actualAnswer = IsItHarry.isItHarry(thisFilmName);
+        actualAnswer = IsItLOTR.isItLotr(thisFilmTitle);
     }
 
-    @Then("i should be told {string}")
+    @Then("a string is returned {string}")
     public void i_should_be_told (String expectedAnswer)
     {
         assertEquals(expectedAnswer,actualAnswer);

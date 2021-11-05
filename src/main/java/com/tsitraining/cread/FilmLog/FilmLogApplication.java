@@ -6,6 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.web.bind.annotation.*;
 
 
+
 @SpringBootApplication
 @RestController
 @RequestMapping("/films")
@@ -54,5 +55,21 @@ public class FilmLogApplication
 		return "saved";
 
 	}
+
+/*	@PostMapping("/addFilm")
+	public @ResponseBody String addAFilm (@RequestBody Film savedFilm)
+	{
+		filmRepository.save(savedFilm);
+		return "saved";
+	}*/
+
+
+
+
+
+
+
+
+
 
 }
