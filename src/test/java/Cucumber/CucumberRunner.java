@@ -6,7 +6,7 @@ import cucumber.api.junit.Cucumber;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(features={"src/test/resources/Cucumber"},
-                glue={"src/test/java/Cucumber/StepDefsAdd"})
+                glue={"classpath:Cucumber/StepDefsSearch"})
 
 public class CucumberRunner
 {

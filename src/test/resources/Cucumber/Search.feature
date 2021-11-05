@@ -4,6 +4,6 @@ Feature: Search
   Scenario: pass
     Given film in database
     When i search for film
-    Then i should be told "LOTR" in database
+    Then i should be told film in database
 
 

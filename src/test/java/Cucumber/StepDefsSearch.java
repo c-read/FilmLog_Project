@@ -25,7 +25,7 @@ public class StepDefsSearch
     @Given("film in database")
     public void film_in_database()
     {
-        film = new Film(1, "LOTR",1,180);
+        film = new Film(1,"LOTR",1,180);
         filmRepository.save(film);
     }
 
@@ -41,7 +41,7 @@ public class StepDefsSearch
 
     }
 
-    @Then("i should be told {string} in database")
+    @Then("i should be told film in database")
     public void i_should_be_told (String expectedAnswer)
     {
         assertEquals(expectedAnswer, film.getTitle());

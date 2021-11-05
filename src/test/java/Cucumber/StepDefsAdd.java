@@ -20,13 +20,12 @@ public class StepDefsAdd
     @Autowired
 
     private FilmRepository filmRepository;
-    Film film = new Film(1, "LOTR", 1, 180);
-    String title;
+    Film film;
 
     @Given("string title provided")
     public void string_title_provided()
     {
-        title = film.getTitle();
+        film = new Film(1, "LOTR", 1, 180);
     }
 
     @When("i add a film")
