@@ -1,5 +1,5 @@
-package Cucumber;
-/*
+package com.tsitraining.cread.FilmLog;
+
 import com.tsitraining.cread.FilmLog.Film;
 import com.tsitraining.cread.FilmLog.FilmRepository;
 import io.cucumber.java.en.Given;
@@ -46,4 +46,3 @@ public class StepDefsAdd
     }
 
 }
-*/

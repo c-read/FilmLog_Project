@@ -1,6 +1,5 @@
-package Cucumber;
+package com.tsitraining.cread.FilmLog;
 
-/*
 import com.tsitraining.cread.FilmLog.Film;
 import com.tsitraining.cread.FilmLog.FilmRepository;
 import io.cucumber.java.en.Given;
@@ -45,11 +44,9 @@ public class StepDefsSearch
 
 
         //is the below doing the exact same?
-        */
-/*Optional<Film> newFilmOptional = filmRepository.findById(1);
+        /*Optional<Film> newFilmOptional = filmRepository.findById(1);
         Film newFilmActual = newFilmOptional.get();
-        assertEquals(newFilmActual.getTitle(),film.getTitle());*//*
-
+        assertEquals(newFilmActual.getTitle(),film.getTitle());*/
 
     }
 
@@ -59,4 +56,3 @@ public class StepDefsSearch
         assertEquals(expectedAnswer, film.getTitle());
     }
 }
-*/
