@@ -11,7 +11,7 @@
 	<groupId>com.tsitraining.cread</groupId>
 	<artifactId>FilmLog</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<packaging>war</packaging>
+	<packaging>jar</packaging>
 	<name>FilmLog</name>
 	<description>Bringing it all together</description>
 	<properties>
@@ -169,6 +169,7 @@
 				</executions>
 			</plugin>
 		</plugins>
+		<finalName>JPA.MySQL</finalName>
 	</build>
 
 
