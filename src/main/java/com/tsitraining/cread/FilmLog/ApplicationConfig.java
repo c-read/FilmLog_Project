@@ -33,7 +33,8 @@ public class ApplicationConfig {
         return DataSourceBuilder
                 .create()
                 //.driverClassName("com.mysql.cj.jdbc.driver")
-                .url("jdbc:mysql://database-3.cro75ul4luse.us-east-2.rds.amazonaws.com:3306/sakila?useSSL=false&serverTimezone=UTC")
+                //.url("jdbc:mysql://database-3.cro75ul4luse.us-east-2.rds.amazonaws.com:3306/sakila?useSSL=false&serverTimezone=UTC")
+                .url("jdbc:" + secrets.getEngine() + "://" + secrets.getHost() +":" + secrets.getPort() + "/sakila")
                 .username(secrets.getUsername())
                 .password(secrets.getPassword())
                 .build();
