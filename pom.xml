@@ -168,7 +168,7 @@
 				</executions>
 			</plugin>
 		</plugins>
-		<finalName>JPA.MySQL</finalName>
+		<finalName>FilmLogJar.jar</finalName>
 	</build>
 
 
