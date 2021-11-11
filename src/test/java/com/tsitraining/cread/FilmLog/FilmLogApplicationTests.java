@@ -27,6 +27,4 @@ class FilmLogApplicationTests {
 		assertEquals("failed", 180, film.getLength());
 	}
 
-
-
 }

@@ -168,8 +168,6 @@
 				</executions>
 			</plugin>
 		</plugins>
-		<finalName>FilmLogJar.jar</finalName>
+		<finalName>FilmLogJAR</finalName>
 	</build>
-
-
 </project>
