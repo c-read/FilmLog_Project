@@ -115,15 +115,15 @@
 			<artifactId>aws-java-sdk-secretsmanager</artifactId>
 			<version>1.12.100</version>
 		</dependency>
-		<dependency>
+<!--	<dependency>
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
 			<scope>test</scope>
-		</dependency>
-		<!--<dependency>
+		</dependency>-->
+		<dependency>
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
-		</dependency>-->
+		</dependency>
 
 	</dependencies>
 
