@@ -5,5 +5,3 @@ Feature: Add
     Given string title provided
     When i add a film
     Then i should be told film added
-
-

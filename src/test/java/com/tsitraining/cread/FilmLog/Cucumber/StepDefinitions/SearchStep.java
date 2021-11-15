@@ -1,4 +1,4 @@
-package com.tsitraining.cread.FilmLog;
+package com.tsitraining.cread.FilmLog.Cucumber.StepDefinitions;
 
 import com.tsitraining.cread.FilmLog.Film;
 import com.tsitraining.cread.FilmLog.FilmRepository;
@@ -15,44 +15,45 @@ import static org.junit.Assert.assertEquals;
 
 
 @CucumberContextConfiguration
-@SpringBootTest
-public class StepDefsSearch
+//@SpringBootTest
+public class SearchStep
 {
     @Autowired
 
-    private FilmRepository filmRepository;
+    private FilmRepository testFilmRepository;
     Film film;
-    String expectedAnswer;
+    Film expectedAnswer;
 
     @Given("film in database")
     public void film_in_database()
     {
         film = new Film(1,"LOTR",1,180);
-        filmRepository.save(film);
+        testFilmRepository.save(film);
     }
 
     @When("i search for film")
     public void i_search_for_film()
     {
 
-        Iterable<Film> allFilms = filmRepository.findAll();
-        for (Film item : allFilms)
-        {
-            Film newFilm = item;
-            expectedAnswer = newFilm.getTitle();
-        }
+//        Iterable<Film> allFilms = testFilmRepository.findAll();
+//        for (Film item : allFilms)
+//        {
+//            Film newFilm = item;
+//            expectedAnswer = newFilm.getTitle();
+//        }
 
 
-        //is the below doing the exact same?
-        /*Optional<Film> newFilmOptional = filmRepository.findById(1);
-        Film newFilmActual = newFilmOptional.get();
-        assertEquals(newFilmActual.getTitle(),film.getTitle());*/
+//        is the below doing the exact same?
+        Optional<Film> newFilmOptional = testFilmRepository.findById(1);
+        expectedAnswer = newFilmOptional.get();
+        assertEquals(expectedAnswer.getTitle(),film.getTitle());
+
 
     }
 
     @Then("i should be told film in database")
-    public void i_should_be_told (String expectedAnswer)
+    public void i_should_be_told_film_in_database ()
     {
-        assertEquals(expectedAnswer, film.getTitle());
+        assertEquals(expectedAnswer.getTitle(), film.getTitle());
     }
 }

@@ -1,5 +1,5 @@
-package Cucumber;
-/*
+package com.tsitraining.cread.FilmLog.Cucumber.StepDefinitions;
+
 import com.tsitraining.cread.FilmLog.Film;
 import com.tsitraining.cread.FilmLog.FilmRepository;
 import io.cucumber.java.en.Given;
@@ -16,11 +16,11 @@ import static org.junit.Assert.assertEquals;
 
 @CucumberContextConfiguration
 @SpringBootTest
-public class StepDefsAdd
+public class AddStep
 {
     @Autowired
 
-    private FilmRepository filmRepository;
+    private FilmRepository testFilmRepository;
     Film film;
     String expectedAnswer;
 
@@ -33,17 +33,20 @@ public class StepDefsAdd
     @When("i add a film")
     public void i_add_a_film()
     {
-        filmRepository.save(film);
+        testFilmRepository.save(film);
     }
 
     @Then("i should be told film added")
-    public void i_should_be_told (String expectedAnswer)
+    public void i_should_be_told ()
     {
-        Optional<Film> newFilmOptional = filmRepository.findById(1);
+        Optional<Film> newFilmOptional = testFilmRepository.findById(1);
         Film newFilmActual = newFilmOptional.get();
         expectedAnswer = newFilmActual.getTitle();
         assertEquals(expectedAnswer,film.getTitle());
     }
 
 }
-*/
+
+
+
+
