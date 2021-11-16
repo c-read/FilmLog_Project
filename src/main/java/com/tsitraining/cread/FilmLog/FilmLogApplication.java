@@ -66,6 +66,18 @@ public class FilmLogApplication
 		return "deleted";
 	}
 
+	@PutMapping("/updateFilm/{film_id}")
+	public @ResponseBody String updateFilm(@PathVariable("film_id") int film_id, @RequestParam String title,
+										   @RequestParam int length)
+	{
+		Film film = filmRepository.findById(film_id).orElse(null);
+		film.setTitle(title);
+		film.setLength(length);
+		return "updated";
+	}
+
+
+
 /*	@PostMapping("/addFilm")
 	public @ResponseBody String addAFilm (@RequestBody Film savedFilm)
 	{

@@ -53,7 +53,7 @@ public class Film
     public void setLanguage_id(int language_id) {this.language_id = language_id; }
 
     public int getLength() {return length; }
-    public void setLength() {this.length = length; }
+    public void setLength(int length) {this.length = length; }
 
 /*    public void addActor(Actor actor)
     {
