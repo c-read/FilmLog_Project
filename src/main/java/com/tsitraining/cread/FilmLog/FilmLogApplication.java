@@ -58,8 +58,8 @@ public class FilmLogApplication
 
 	}
 
-	@DeleteMapping("/deleteFilmById/{film_id}")
-	public @ResponseBody String deleteFilmById(@PathVariable("film_id") int film_id)
+	@DeleteMapping("/deleteFilm/{film_id}")
+	public @ResponseBody String deleteFilm(@PathVariable("film_id") int film_id)
 	{
 		Film film = filmRepository.findById(film_id).orElse(null);
 		filmRepository.delete(film);
