@@ -19,9 +19,9 @@ public class Film
 
     /*List<String> actorsInFilm = new ArrayList<String>();*/
 
-    public Film(int film_id, String title, int language_id, int length)
+    public Film(String title, int language_id, int length)
     {
-        this.film_id = film_id;
+        //this.film_id = film_id;
         this.title = title;
         this.language_id = language_id;
         this.length = length;

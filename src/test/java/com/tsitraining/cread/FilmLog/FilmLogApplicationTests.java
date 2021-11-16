@@ -9,21 +9,21 @@ class FilmLogApplicationTests {
 	@Test
 	public void testFilmGetTitleMethod()
 	{
-		Film film = new Film(1, "LOTR", 1, 180);
+		Film film = new Film("LOTR", 1, 180);
 		assertEquals("failed", "LOTR", film.getTitle());
 	}
 
 	@Test
 	public void testFilmGetLanguageIdMethod()
 	{
-		Film film = new Film(1, "LOTR", 1, 180);
+		Film film = new Film("LOTR", 1, 180);
 		assertEquals("failed", 1, film.getLanguage_id());
 	}
 
 	@Test
 	public void testFilmGetLengthMethod()
 	{
-		Film film = new Film(1, "LOTR", 1, 180);
+		Film film = new Film("LOTR", 1, 180);
 		assertEquals("failed", 180, film.getLength());
 	}
 

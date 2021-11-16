@@ -27,7 +27,7 @@ public class SearchStep
     @Given("film in database")
     public void film_in_database()
     {
-        film = new Film(1,"LOTR",1,180);
+        film = new Film("LOTR",1,180);
         testFilmRepository.save(film);
     }
 
