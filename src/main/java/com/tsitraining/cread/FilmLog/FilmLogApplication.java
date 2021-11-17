@@ -5,8 +5,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Optional;
 
 
 @SpringBootApplication
@@ -53,28 +52,27 @@ public class FilmLogApplication
 	{
 		Film savedFilm = new Film(title, language_id, length);
 		filmRepository.save(savedFilm);
-		return "saved";
+		return "saved.";
 
 	}
 
-	@DeleteMapping("/deleteFilm")
-	public @ResponseBody String deleteFilm(@RequestParam("film_id") int film_id)
+	@DeleteMapping(value = "/deleteFilm/{film_id}")
+	public @ResponseBody String deleteFilm(@PathVariable("film_id") int film_id)
 	{
-		//Film film = filmRepository.findById(film_id).orElse(null);
 		filmRepository.deleteById(film_id);
-		//filmRepository.delete(film);
-		return "deleted";
+		return "deleted.";
 	}
 
-	@PutMapping("/updateFilm")
-	public @ResponseBody String updateFilm(@RequestParam("film_id") int film_id, @RequestParam String title,
+	@PostMapping("/updateFilm/{film_id}")
+	public @ResponseBody String updateFilm(@PathVariable("film_id") int film_id, @RequestParam String title,
 										   @RequestParam int length)
 	{
-		Film film = filmRepository.findById(film_id).orElse(null);
-		film.setTitle(title);
-		film.setLength(length);
-		filmRepository.save(film);
-		return "updated";
+		Optional<Film> optionalFilm = filmRepository.findById(film_id);
+		Film updatedFilm = optionalFilm.get();
+		updatedFilm.setTitle(title);
+		updatedFilm.setLength(length);
+		filmRepository.save(updatedFilm);
+		return "updated.";
 	}
 
 
