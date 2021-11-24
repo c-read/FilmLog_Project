@@ -3,6 +3,9 @@ package com.tsitraining.cread.FilmLog;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Optional;
@@ -11,6 +14,7 @@ import java.util.Optional;
 @SpringBootApplication
 @RestController
 @RequestMapping("/films")
+@CrossOrigin(origins = "http://localhost:3000")
 public class FilmLogApplication
 {
 
@@ -46,14 +50,19 @@ public class FilmLogApplication
 		return film;
 	}
 
-	@PostMapping("/addFilm")
-	public @ResponseBody String addAFilm (@RequestParam String title,
-										  @RequestParam int language_id, @RequestParam int length)
-	{
-		Film savedFilm = new Film(title, language_id, length);
+//	@PostMapping("/addFilm")
+//	public @ResponseBody String addAFilm (@RequestParam String title,
+//										  @RequestParam int language_id, @RequestParam int length)
+//	{
+//		Film savedFilm = new Film(title, language_id, length);
+//		filmRepository.save(savedFilm);
+//		return "saved.";
+//	}
+	@PostMapping(path="/addFilm", consumes = {MediaType.APPLICATION_JSON_VALUE}, produces = {MediaType.APPLICATION_JSON_VALUE})
+	public ResponseEntity<Film> addAFilm(@RequestBody Film newFilm){
+		Film savedFilm = new Film(newFilm.getTitle(), newFilm.getLanguage_id(), newFilm.getLength());
 		filmRepository.save(savedFilm);
-		return "saved.";
-
+		return new ResponseEntity<Film>(savedFilm, HttpStatus.OK);
 	}
 
 	@DeleteMapping(value = "/deleteFilm/{film_id}")
