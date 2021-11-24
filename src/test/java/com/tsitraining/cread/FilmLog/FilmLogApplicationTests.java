@@ -13,6 +13,15 @@ class FilmLogApplicationTests {
 	}
 
 	@Test
+	public void testFilmSetTitleMethod()
+	{
+		Film film = new Film("LOTR", 1, 180);
+		film.setTitle("Interstellar");
+		assertEquals("failed",film.getTitle() == "Interstellar");
+	}
+
+
+	@Test
 	public void testFilmGetLanguageIdMethod()
 	{
 		Film film = new Film("LOTR", 1, 180);
