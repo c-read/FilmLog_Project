@@ -20,7 +20,7 @@ class FilmLogApplicationTests {
 		assertEquals(true,film.getTitle() == "Interstellar");
 	}
 
-	
+
 	@Test
 	public void testFilmGetLanguageIdMethod()
 	{
