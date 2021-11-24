@@ -17,7 +17,7 @@ class FilmLogApplicationTests {
 	{
 		Film film = new Film("LOTR", 1, 180);
 		film.setTitle("Interstellar");
-		assertEquals("failed",film.getTitle() == "Interstellar");
+		assertEquals(true,film.getTitle() == "Interstellar");
 	}
 
 
