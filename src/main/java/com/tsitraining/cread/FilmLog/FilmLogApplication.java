@@ -71,7 +71,7 @@ public class FilmLogApplication
 		filmRepository.deleteById(film_id);
 		return "deleted.";
 	}
-
+	//fdfd
 	@PostMapping("/updateFilm/{film_id}")
 	public @ResponseBody String updateFilm(@PathVariable("film_id") int film_id, @RequestParam String title,
 										   @RequestParam int length)
