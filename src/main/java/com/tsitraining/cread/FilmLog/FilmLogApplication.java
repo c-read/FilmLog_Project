@@ -69,10 +69,10 @@ public class FilmLogApplication
 
 	@DeleteMapping(value = "/deleteFilm/{film_id}")
 	@CrossOrigin(origins = "http://localhost:3000")
-	public @ResponseBody void deleteFilm(@PathVariable("film_id") int film_id)
+	public @ResponseBody String deleteFilm(@PathVariable("film_id") int film_id)
 	{
 		filmRepository.deleteById(film_id);
-		return;
+		return "Delete Successful";
 	}
 
 	@PostMapping("/updateFilm/{film_id}")
