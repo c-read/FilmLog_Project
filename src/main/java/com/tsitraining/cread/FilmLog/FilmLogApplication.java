@@ -58,8 +58,9 @@ public class FilmLogApplication
 //		filmRepository.save(savedFilm);
 //		return "saved.";
 //	}
-	@CrossOrigin(origins = "http://localhost:3000")
+
 	@PostMapping(path="/addFilm", consumes = {MediaType.APPLICATION_JSON_VALUE}, produces = {MediaType.APPLICATION_JSON_VALUE})
+	@CrossOrigin(origins = "http://localhost:3000")
 	public ResponseEntity<Film> addAFilm(@RequestBody Film newFilm){
 		Film savedFilm = new Film(newFilm.getTitle(), newFilm.getLanguage_id(), newFilm.getLength());
 		filmRepository.save(savedFilm);
