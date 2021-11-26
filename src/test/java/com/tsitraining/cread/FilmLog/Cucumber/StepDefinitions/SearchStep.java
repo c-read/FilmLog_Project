@@ -15,40 +15,30 @@ import static org.junit.Assert.assertEquals;
 
 
 @CucumberContextConfiguration
-//@SpringBootTest
+@SpringBootTest
 public class SearchStep
 {
     @Autowired
 
-    private FilmRepository testFilmRepository;
+    private FilmRepository filmRepository;
     Film film;
     Film expectedAnswer;
+    int filmId;
 
     @Given("film in database")
     public void film_in_database()
     {
-        film = new Film("superbad2",1,180);
-        testFilmRepository.save(film);
+        film = new Film("new film",1,180);
+        filmRepository.save(film);
+        filmId = film.getFilm_id();
     }
 
     @When("i search for film")
     public void i_search_for_film()
     {
-
-//        Iterable<Film> allFilms = testFilmRepository.findAll();
-//        for (Film item : allFilms)
-//        {
-//            Film newFilm = item;
-//            expectedAnswer = newFilm.getTitle();
-//        }
-
-
-//        is the below doing the exact same?
-        Optional<Film> newFilmOptional = testFilmRepository.findById(1);
+        Optional<Film> newFilmOptional = filmRepository.findById(filmId);
         expectedAnswer = newFilmOptional.get();
         assertEquals(expectedAnswer.getTitle(),film.getTitle());
-
-
     }
 
     @Then("i should be told film in database")

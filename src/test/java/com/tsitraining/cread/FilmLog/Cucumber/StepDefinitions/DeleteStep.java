@@ -10,12 +10,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.Optional;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 
 @CucumberContextConfiguration
-//@SpringBootTest
-public class AddStep
+public class DeleteStep
 {
     @Autowired
 
@@ -24,26 +23,25 @@ public class AddStep
     String expectedAnswer;
     int filmId;
 
-    @Given("string title provided")
-    public void string_title_provided()
+    @Given("new film added")
+    public void new_film_added()
     {
-        film = new Film("LOTR", 1, 180);
-    }
-
-    @When("i add a film")
-    public void i_add_a_film()
-    {
+        film = new Film("Scarface", 1, 180);
         filmRepository.save(film);
-        filmId = film.getFilm_id();
+
     }
 
-    @Then("i should be told film added")
+    @When("i delete a film")
+    public void i_delete_a_film()
+    {
+        filmId = film.getFilm_id();
+        filmRepository.deleteById(filmId);
+    }
+
+    @Then("i should be told film deleted")
     public void i_should_be_told ()
     {
-        Optional<Film> newFilmOptional = filmRepository.findById(filmId);
-        Film newFilmActual = newFilmOptional.get();
-        expectedAnswer = newFilmActual.getTitle();
-        assertEquals(expectedAnswer,film.getTitle());
+        String message = "film deleted";
     }
 
 }

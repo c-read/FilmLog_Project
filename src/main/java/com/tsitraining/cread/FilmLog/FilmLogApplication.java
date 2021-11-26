@@ -21,21 +21,10 @@ public class FilmLogApplication
 	@Autowired
 	private FilmRepository filmRepository;
 
-/*	@Autowired
-	private ActorRepository actorRepository;*/
-
 	public static void main(String[] args)
 	{
 		SpringApplication.run(FilmLogApplication.class, args);
 	}
-
-/*	@GetMapping("/getcat")
-	public String catResponse()
-	{
-		Actor actor = new Actor("Billy Connoly", LocalDate.of(1968,1,1));
-
-		return "";
-	}*/
 
 	@GetMapping("/all")
 	public @ResponseBody Iterable<Film> getAllUsers()
