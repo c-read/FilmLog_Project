@@ -27,7 +27,7 @@ public class AddStep
     @Given("string title provided")
     public void string_title_provided()
     {
-        film = new Film("LOTR", 1, 180);
+        film = new Film("superbad2", 1, 180);
     }
 
     @When("i add a film")

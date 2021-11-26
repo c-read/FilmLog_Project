@@ -23,7 +23,7 @@ import org.openqa.selenium.Keys;
 import java.util.*;
 import java.net.MalformedURLException;
 import java.net.URL;
-public class Seleniumtest1Test {
+public class SelbuttonsTest {
   private WebDriver driver;
   private Map<String, Object> vars;
   JavascriptExecutor js;
@@ -39,6 +39,25 @@ public class Seleniumtest1Test {
     driver.quit();
   }
   @Test
-  public void seleniumtest1() {
+  public void selbuttons() {
+    driver.get("http://localhost:3000/");
+    driver.manage().window().setSize(new Dimension(1600, 860));
+    driver.findElement(By.cssSelector(".col-sm .btn-light")).click();
+    driver.findElement(By.cssSelector(".col-sm .btn-light")).click();
+    driver.findElement(By.cssSelector(".col-sm .btn-light")).sendKeys("super");
+    driver.findElement(By.cssSelector(".btn-info:nth-child(2)")).click();
+    driver.findElement(By.name("title")).click();
+    driver.findElement(By.name("title")).sendKeys("test2");
+    driver.findElement(By.name("length")).click();
+    driver.findElement(By.name("length")).sendKeys("123");
+    driver.findElement(By.cssSelector(".btn-info:nth-child(3)")).click();
+    assertThat(driver.switchTo().alert().getText(), is("you added: \n FILM: test2 \n LENGTH: 123"));
+    driver.switchTo().alert().accept();
+    driver.findElement(By.name("film_id")).click();
+    driver.findElement(By.name("film_id")).sendKeys("1044");
+    driver.findElement(By.cssSelector(".btn-danger")).click();
+    assertThat(driver.switchTo().alert().getText(), is("you removed: \n FILM with Id: 1044"));
+    driver.switchTo().alert().accept();
+    driver.findElement(By.cssSelector(".text-center:nth-child(3) form")).click();
   }
 }
