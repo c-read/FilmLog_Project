@@ -29,10 +29,25 @@ class FilmLogApplicationTests {
 	}
 
 	@Test
+	public void testFilmSetLanguageIdMethod()
+	{
+		Film film = new Film("LOTR", 1, 180);
+		film.setLanguage_id(2);
+		assertEquals(true,film.getLanguage_id() == 2);
+	}
+
+	@Test
 	public void testFilmGetLengthMethod()
 	{
 		Film film = new Film("LOTR", 1, 180);
 		assertEquals("failed", 180, film.getLength());
 	}
 
+	@Test
+	public void testFilmSetLengthMethod()
+	{
+		Film film = new Film("LOTR", 1, 180);
+		film.setLength(200);
+		assertEquals(true,film.getLength() == 200);
+	}
 }
